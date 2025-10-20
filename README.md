@@ -85,6 +85,8 @@ sudo systemctl start influxdb
 1. Crear bucket `microbit_data` y usuario/organization `iot-lab`.  
 2. Generar token con permisos **write/read** para Telegraf y Grafana.
 
+![INFLUXDB](https://github.com/DiSahian/Sensor-UV-para-alertas-de-radiacion-solar/blob/5067f23d1371f34ce745a080a8abd657548e4581/Captura%20de%20pantalla%202025-10-19%20201249.png)
+
 ### Telegraf
 ```bash
 sudo apt install telegraf
@@ -109,6 +111,9 @@ bucket = "microbit_data"
 ```
 sudo systemctl restart telegraf
 ```
+
+![TELEGRAF](https://github.com/DiSahian/Sensor-UV-para-alertas-de-radiacion-solar/blob/5067f23d1371f34ce745a080a8abd657548e4581/Captura%20de%20pantalla%202025-10-19%20201731.png)
+
 ### Grafana
 ```
 sudo apt install grafana
@@ -119,6 +124,8 @@ sudo systemctl start grafana-server
 - Agregar data source InfluxDB con bucket microbit_data.
 - Crear dashboards y alertas.
 
+![GRAFANA](https://github.com/DiSahian/Sensor-UV-para-alertas-de-radiacion-solar/blob/5067f23d1371f34ce745a080a8abd657548e4581/Captura%20de%20pantalla%202025-10-19%20195859.png)
+
 ## 5️⃣ Uso del Sistema
 
 1. Ejecutar sensor en VSCode:
@@ -126,10 +133,15 @@ sudo systemctl start grafana-server
 python sensor_uv.py
 ```
 
+![SENSOR UV](https://github.com/DiSahian/Sensor-UV-para-alertas-de-radiacion-solar/blob/5067f23d1371f34ce745a080a8abd657548e4581/Captura%20de%20pantalla%202025-10-19%20201322.png)
+
 2. Verificar suscriptor MQTT (opcional):
 ```
 python suscriptor.py
 ```
+
+![SUSCRIPTOR](https://github.com/DiSahian/Sensor-UV-para-alertas-de-radiacion-solar/blob/5067f23d1371f34ce745a080a8abd657548e4581/Captura%20de%20pantalla%202025-10-19%20201309.png)
+
 3.Telegraf consume datos y los escribe en InfluxDB automáticamente.
 4. Abrir Grafana:
 - Visualizar datos en tiempo real en dashboards.
@@ -137,3 +149,4 @@ python suscriptor.py
 
 ## 6️⃣ Diagrama de Arquitectura
 
+![DIAGRAMA DE LA ARQUITECTURA](https://github.com/DiSahian/Sensor-UV-para-alertas-de-radiacion-solar/blob/9fb817539f2e8d1f99e2b1073afb183f9bc6db66/arquitectura.png)
